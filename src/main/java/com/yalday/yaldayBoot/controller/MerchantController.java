@@ -25,6 +25,7 @@ public class MerchantController {
 
   @GetMapping("/merchants")
   public List<Merchant> getAllMerchants() {
+    System.out.println("MerchantController.getAllMerchants");
     return merchantRepository.findAll();
   }
 }

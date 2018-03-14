@@ -5,7 +5,7 @@ import javax.persistence.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "Merchant")
+@Table(name = "merchant")
 public class Merchant {
 
   @Id
