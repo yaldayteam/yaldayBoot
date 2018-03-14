@@ -1,8 +1,9 @@
 package com.yalday.yaldayBoot.entity;
 
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name = "merchant")
