@@ -45,7 +45,7 @@ public class MerchantController {
   }
 
   @PutMapping("/merchants/{id}")
-  public Merchant updateNote(@PathVariable(value = "id") Long merchantId,
+  public Merchant updateMerchant(@PathVariable(value = "id") Long merchantId,
                          @Valid @RequestBody Merchant merchantDetails) {
 
     Merchant merchant = merchantRepository.findById(merchantId)
