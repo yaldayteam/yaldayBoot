@@ -14,27 +14,20 @@ import java.util.List;
 @RestController
 public class MerchantController {
 
-  final MerchantRepository merchantRepository;
+  private final MerchantRepository merchantRepository;
 
   @Autowired
   public MerchantController(final MerchantRepository merchantRepository) {
     this.merchantRepository = merchantRepository;
   }
 
-  @GetMapping("/test")
-  String get(){
-    return "Hello from get";
-  }
-
   @GetMapping(path="/merchants", produces="application/json")
   public List<Merchant> getAllMerchants() {
-    System.out.println("MerchantController.getAllMerchants");
     return merchantRepository.findAll();
   }
 
   @PostMapping(path="/merchants")
   public Merchant createMerchant(@Valid @RequestBody Merchant merchant) {
-    System.out.println("MerchantController.createMerchants");
     return merchantRepository.save(merchant);
   }
 
@@ -53,8 +46,7 @@ public class MerchantController {
 
     merchant.setName(merchantDetails.getName());
 
-    Merchant updatedMerchant= merchantRepository.save(merchant);
-    return updatedMerchant;
+    return merchantRepository.save(merchant);
   }
 
   @DeleteMapping("/merchants/{id}")

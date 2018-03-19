@@ -18,5 +18,4 @@ public interface MerchantRepository extends JpaRepository<Merchant, Long> {
 
   void delete(Long merchantId);
 
-
 }
