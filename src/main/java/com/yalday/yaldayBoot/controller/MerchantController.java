@@ -1,14 +1,22 @@
 package com.yalday.yaldayBoot.controller;
 
 import com.yalday.yaldayBoot.entity.Merchant;
+import com.yalday.yaldayBoot.exception.MerchantExistsException;
 import com.yalday.yaldayBoot.exception.ResourceNotFoundException;
 import com.yalday.yaldayBoot.repository.MerchantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -28,31 +36,33 @@ public class MerchantController {
 
   @PostMapping(path="/merchants")
   public Merchant createMerchant(@Valid @RequestBody Merchant merchant) {
+    Optional<Merchant> optionalMerchant = merchantRepository.findByName(merchant.getName());
+    optionalMerchant.ifPresent(returnedMerchant -> {throw new MerchantExistsException();});
     return merchantRepository.save(merchant);
   }
 
-  @GetMapping("/merchants/{id}")
-  public Merchant getMerchantById(@PathVariable(value = "id") Long merchantId) {
-    return merchantRepository.findById(merchantId)
-      .orElseThrow(() -> new ResourceNotFoundException("Merchant", "id", merchantId));
+  @GetMapping("/merchants/{name}")
+  public Merchant getMerchantById(@PathVariable(value = "name") String name) {
+    return merchantRepository.findByName(name)
+      .orElseThrow(() -> new ResourceNotFoundException("Merchant", "name", name));
   }
 
-  @PutMapping("/merchants/{id}")
-  public Merchant updateMerchant(@PathVariable(value = "id") Long merchantId,
+  @PutMapping("/merchants/{name}")
+  public Merchant updateMerchant(@PathVariable(value = "name") String name,
                          @Valid @RequestBody Merchant merchantDetails) {
 
-    Merchant merchant = merchantRepository.findById(merchantId)
-      .orElseThrow(() -> new ResourceNotFoundException("Merchant", "id", merchantId));
+    Merchant merchant = merchantRepository.findByName(name)
+      .orElseThrow(() -> new ResourceNotFoundException("Merchant", "name", name));
 
     merchant.setName(merchantDetails.getName());
 
     return merchantRepository.save(merchant);
   }
 
-  @DeleteMapping("/merchants/{id}")
-  public ResponseEntity<?> deleteMerchant(@PathVariable(value = "id") Long merchantId) {
-    Merchant merchant = merchantRepository.findById(merchantId)
-      .orElseThrow(() -> new ResourceNotFoundException("Merchant", "id", merchantId));
+  @DeleteMapping("/merchants/{name}")
+  public ResponseEntity<?> deleteMerchant(@PathVariable(value = "name") String name) {
+    Merchant merchant = merchantRepository.findByName(name)
+      .orElseThrow(() -> new ResourceNotFoundException("Merchant", "name", name));
 
     merchantRepository.delete(merchant);
 
