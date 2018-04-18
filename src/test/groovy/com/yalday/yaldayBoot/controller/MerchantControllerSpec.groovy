@@ -47,4 +47,30 @@ class MerchantControllerSpec extends Specification {
       and: "There should be no new merchants in the repo"
         merchantRepository.count() == 1
   }
+
+  def "updating a merchant is successful" (){
+    given: "a merchant already exists in the database"
+      def DOUBLER = "RR Diner"
+      Merchant merchant = new Merchant()
+      merchant.setName(DOUBLER)
+      merchantRepository.save(merchant)
+    and: "I change the name of the merchant"
+      Merchant newMerchant = new Merchant()
+      newMerchant.setName("Norma's")
+    when: "I update a property of that merchant"
+      Merchant updatedMerchant = merchantController.updateMerchant(DOUBLER, newMerchant)
+    then: "I expect the new value to be updated in the database"
+      updatedMerchant.getName() == "Norma's"
+  }
+
+  def "deleting a merchant is successful" (){
+    given: "a merchant exists in the database"
+      Merchant merchant = new Merchant()
+      merchant.setName("Los Pollos Hermanos")
+      merchantRepository.save(merchant)
+    when: "I delete that merchant"
+      merchantRepository.delete(merchant)
+    then: "I expect it to be deleted from the database"
+      merchantRepository.count() == 0
+  }
 }
