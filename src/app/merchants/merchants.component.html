@@ -7,14 +7,5 @@
   </li>
 </ul>
 
-<div *ngIf="selectedMerchant">
 
-  <h2>{{ selectedMerchant.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{selectedMerchant.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedMerchant.name" placeholder="name">
-    </label>
-  </div>
-
-</div>
+<app-merchant-detail [merchant]="selectedMerchant"></app-merchant-detail>
