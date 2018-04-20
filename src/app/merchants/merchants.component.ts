@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Merchant } from '../merchant';
-import { MERCHANTS } from '../mock-merchants';
+import { MerchantService } from '../merchant.service';
 
 @Component({
   selector: 'app-merchants',
@@ -9,13 +9,19 @@ import { MERCHANTS } from '../mock-merchants';
 })
 export class MerchantsComponent implements OnInit {
 
-  merchants = MERCHANTS;
+  merchants: Merchant[];
 
   selectedMerchant: Merchant;
 
-  constructor() { }
+  constructor(private merchantService: MerchantService) { }
 
   ngOnInit() {
+    this.getMerchants();
+  }
+
+  getMerchants(): void {
+    this.merchantService.getMerchants()
+      .subscribe(merchants => this.merchants = merchants);
   }
 
   onSelect(merchant: Merchant): void{
