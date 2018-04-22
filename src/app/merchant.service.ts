@@ -15,4 +15,8 @@ export class MerchantService {
     return of(MERCHANTS);
   }
 
+  getMerchant(name: string): Observable<Merchant>{
+    this.messageService.add(`MerchantService: fetched merchant name=${name}`);
+    return of(MERCHANTS.find(merchant => merchant.name === name));
+  }
 }

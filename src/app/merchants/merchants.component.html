@@ -1,11 +1,8 @@
 <h2>My Merchants</h2>
 <ul class="merchants">
-  <li *ngFor="let merchant of merchants"
-      [class.selected]="merchant === selectedMerchant"
-      (click)="onSelect(merchant)">
-    <span class="badge">{{merchant.id}}</span> {{merchant.name}}
+  <li *ngFor="let merchant of merchants">
+    <a routerLink="/merchant/{{merchant.name}}">
+      <span class="badge">{{merchant.name}}</span> {{merchant.name}}
+    </a>
   </li>
 </ul>
-
-
-<app-merchant-detail [merchant]="selectedMerchant"></app-merchant-detail>

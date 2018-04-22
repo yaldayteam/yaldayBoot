@@ -3,13 +3,12 @@ import { Merchant } from '../merchant';
 import { MerchantService } from '../merchant.service';
 
 @Component({
-  selector: 'app-merchants',
-  templateUrl: './merchants.component.html',
-  styleUrls: ['./merchants.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: [ './dashboard.component.css' ]
 })
-export class MerchantsComponent implements OnInit {
-
-  merchants: Merchant[];
+export class DashboardComponent implements OnInit {
+  merchants: Merchant[] = [];
 
   constructor(private merchantService: MerchantService) { }
 
@@ -19,7 +18,6 @@ export class MerchantsComponent implements OnInit {
 
   getMerchants(): void {
     this.merchantService.getMerchants()
-      .subscribe(merchants => this.merchants = merchants);
+      .subscribe(merchants => this.merchants = merchants.slice(1, 5));
   }
-
 }
