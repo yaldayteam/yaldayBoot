@@ -1,9 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center" class="container">
-  <h1>
-    {{greeting.content}}
-  </h1>
-  <app-merchants></app-merchants>
-  <app-messages></app-messages>
-</div>
-
+<h1>{{greeting.content}}</h1>
+<nav>
+  <a routerLink="/merchants">Merchants</a>
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages>

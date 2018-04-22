@@ -9,6 +9,7 @@ import { MerchantDetailComponent } from './merchant-detail/merchant-detail.compo
 import { MerchantService } from "./merchant.service";
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MessageService } from './message.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [
     MerchantService,
