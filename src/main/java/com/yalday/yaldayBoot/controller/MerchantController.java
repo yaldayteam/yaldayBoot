@@ -44,15 +44,12 @@ public class MerchantController {
       .orElseThrow(() -> new ResourceNotFoundException("Merchant", "name", name));
   }
 
-  @PutMapping("/merchants/{name}")
-  public Merchant updateMerchant(@PathVariable(value = "name") String name,
-                         @Valid @RequestBody Merchant merchantDetails) {
-
-    Merchant merchant = merchantRepository.findByName(name)
-      .orElseThrow(() -> new ResourceNotFoundException("Merchant", "name", name));
-
+  @PutMapping("/merchants")
+  public Merchant updateMerchant(@Valid @RequestBody Merchant merchantDetails) {
+    System.out.println("MerchantController.updateMerchant");
+    Merchant merchant = merchantRepository.findById(merchantDetails.getId())
+      .orElseThrow(() -> new ResourceNotFoundException("Merchant", "id", merchantDetails.getId()));
     merchant.setName(merchantDetails.getName());
-
     return merchantRepository.save(merchant);
   }
 

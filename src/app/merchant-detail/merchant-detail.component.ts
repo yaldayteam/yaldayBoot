@@ -32,4 +32,9 @@ export class MerchantDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.merchantService.updateMerchant(this.merchant)
+      .subscribe(() => this.goBack());
+  }
+
 }
