@@ -44,7 +44,16 @@ export class MerchantService {
       .pipe(
         tap(_ => this.log(`updated merchant name=${merchant.name}`)),
         catchError(this.handleError<any>('updateMerchant'))
-    );
+      );
+  }
+
+  /** POST: add a new merchant to the server */
+  addMerchant (merchant: Merchant): Observable<Merchant> {
+    return this.http.post<Merchant>(this.merchantsUrl, merchant, httpOptions)
+      .pipe(
+        tap((merchant: Merchant) => this.log(`added merchant w/ id=${merchant.name}`)),
+        catchError(this.handleError<Merchant>('addMerchant'))
+      );
   }
   /**
    * Handle Http operation that failed.

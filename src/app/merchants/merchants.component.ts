@@ -22,4 +22,13 @@ export class MerchantsComponent implements OnInit {
       .subscribe(merchants => this.merchants = merchants);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.merchantService.addMerchant({ name } as Merchant)
+      .subscribe(hero => {
+        this.merchants.push(hero);
+      });
+  }
+
 }
