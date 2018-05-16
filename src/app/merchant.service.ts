@@ -55,6 +55,18 @@ export class MerchantService {
         catchError(this.handleError<Merchant>('addMerchant'))
       );
   }
+
+  /** DELETE: delete the hero from the server */
+  deleteMerchant (merchant: Merchant | number): Observable<Merchant> {
+    const id = typeof merchant === 'number' ? merchant : merchant.id;
+    const url = `${this.merchantsUrl}/${id}`;
+
+    return this.http.delete<Merchant>(url, httpOptions)
+      .pipe(
+        tap(_ => this.log(`deleted merchant id=${id}`)),
+        catchError(this.handleError<Merchant>('deleteMerchant'))
+      );
+  }
   /**
    * Handle Http operation that failed.
    * Let the app continue.

@@ -7,11 +7,15 @@
   <button (click)="add(merchantName.value); merchantName.value=''">
     add
   </button>
+
 </div>
 <ul class="merchants">
   <li *ngFor="let merchant of merchants">
     <a routerLink="/merchant/{{merchant.name}}">
       <span class="badge">{{merchant.name}}</span> {{merchant.name}}
     </a>
+    <button class="delete" title="delete merchant"
+            (click)="delete(merchant)">x
+    </button>
   </li>
 </ul>

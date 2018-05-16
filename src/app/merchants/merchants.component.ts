@@ -31,4 +31,8 @@ export class MerchantsComponent implements OnInit {
       });
   }
 
+  delete(merchant: Merchant): void {
+    this.merchants = this.merchants.filter(m => m !== merchant);
+    this.merchantService.deleteMerchant(merchant).subscribe();
+  }
 }

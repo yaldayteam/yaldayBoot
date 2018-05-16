@@ -53,10 +53,10 @@ public class MerchantController {
     return merchantRepository.save(merchant);
   }
 
-  @DeleteMapping("/merchants/{name}")
-  public ResponseEntity<?> deleteMerchant(@PathVariable(value = "name") String name) {
-    Merchant merchant = merchantRepository.findByName(name)
-      .orElseThrow(() -> new ResourceNotFoundException("Merchant", "name", name));
+  @DeleteMapping("/merchants/{id}")
+  public ResponseEntity<?> deleteMerchant(@PathVariable(value = "id") Long id) {
+    Merchant merchant = merchantRepository.findById(id)
+      .orElseThrow(() -> new ResourceNotFoundException("Merchant", "id", id));
 
     merchantRepository.delete(merchant);
 
