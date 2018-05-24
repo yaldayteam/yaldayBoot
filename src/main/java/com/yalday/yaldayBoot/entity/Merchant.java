@@ -39,6 +39,5 @@ public class Merchant {
     return "merch_id= " + id + ", merchanName=" + name ;
   }
 
-
 }
 

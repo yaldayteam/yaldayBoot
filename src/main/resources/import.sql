@@ -8,3 +8,6 @@ insert into merchant(merchant_id, merchant_name) values (17, 'The Max');
 insert into merchant(merchant_id, merchant_name) values (18, 'Krusty Burger');
 insert into merchant(merchant_id, merchant_name) values (19, 'Nuovo Vesuvio');
 insert into merchant(merchant_id, merchant_name) values (20, 'Bronto Burger');
+
+insert into user(user_id, user_name) values (1, 'Andres Iniesta');
+insert into user(user_id, user_name) values (2, 'Eric Cantona');
