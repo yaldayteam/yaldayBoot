@@ -19,6 +19,9 @@ public class Merchant {
   @Column(name="merchant_name")
   private String name;
 
+  @Column(name="image_url")
+  private String imageUrl;
+
   public Long getId() {
     return id;
   }
@@ -35,9 +38,21 @@ public class Merchant {
     this.name = name;
   }
 
-  public String toString() {
-    return "merch_id= " + id + ", merchanName=" + name ;
+  public String getImageUrl() {
+    return imageUrl;
   }
 
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
+  }
+
+  @Override
+  public String toString() {
+    return "Merchant{" +
+      "id=" + id +
+      ", name='" + name + '\'' +
+      ", imageUrl='" + imageUrl + '\'' +
+      '}';
+  }
 }
 
