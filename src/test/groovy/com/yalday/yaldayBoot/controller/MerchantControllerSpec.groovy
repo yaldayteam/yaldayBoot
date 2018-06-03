@@ -58,7 +58,7 @@ class MerchantControllerSpec extends Specification {
       Merchant newMerchant = new Merchant()
       newMerchant.setName("Norma's")
     when: "I update a property of that merchant"
-      Merchant updatedMerchant = merchantController.updateMerchant(DOUBLER, newMerchant)
+      Merchant updatedMerchant = merchantController.updateMerchant(newMerchant)
     then: "I expect the new value to be updated in the database"
       updatedMerchant.getName() == "Norma's"
   }
