@@ -10,5 +10,6 @@ export const MERCHANTS: Merchant[] = [
   { id: 17, name: 'The Max' },
   { id: 18, name: 'Krusty Burger' },
   { id: 19, name: 'Nuovo Vesuvio' },
-  { id: 20, name: 'Bronto Burger' }
+  { id: 20, name: 'Bronto Burger' },
+  { id: 21, name: 'Dusk Till Dawn' }
 ];
