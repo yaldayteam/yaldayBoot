@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { RegisterComponent } from './register/index';
+import { LoginComponent } from './login/login.component';
+import { AlertComponent } from './_directives/index';
+import { AuthGuard } from './_guards/index';
+import { JwtInterceptor } from './_helpers/index';
+import { fakeBackendProvider } from './_helpers/index';
 
 @NgModule({
   declarations: [
@@ -23,8 +30,11 @@ import { FooterComponent } from './footer/footer.component';
     MerchantDetailComponent,
     MessagesComponent,
     DashboardComponent,
+    AlertComponent,
+    LoginComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +44,19 @@ import { FooterComponent } from './footer/footer.component';
   ],
   providers: [
     MerchantService,
-    MessageService
+    MessageService,
+    AlertService,
+    AuthenticationService,
+    AuthGuard,
+    UserService,
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: JwtInterceptor,
+        multi: true
+    },
+
+    // provider used to create fake backend
+    fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

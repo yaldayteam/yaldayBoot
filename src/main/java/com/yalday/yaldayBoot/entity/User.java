@@ -14,6 +14,12 @@ public class User {
   @Column(name = "user_name")
   private String name;
 
+  @Column(name = "first_name")
+  private String firstName;
+
+  @Column(name = "last_name")
+  private String lastName;
+
   public Long getId() {
     return id;
   }
@@ -30,11 +36,29 @@ public class User {
     this.name = name;
   }
 
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
   @Override
   public String toString() {
     return "User{" +
       "id=" + id +
-      ", name='" + name + '\'' +
+      ", user_name='" + name + '\'' +
+      ", first_name='" + firstName + '\'' +
+      ", last_name='" + lastName + '\'' +
       '}';
   }
 }
