@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Merchant } from './merchant';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -30,11 +30,11 @@ export class MerchantService {
   }
 
   getMerchants(): Observable<Merchant[]> {
-    this.log('MerchantService: fetched merchants');
+    this.log('MerchantService: fetching merchants');
     return this.http.get<Merchant[]>(this.merchantsUrl)
       .pipe(
-        tap(merchants => this.log(`fetched merchants`)),
-        catchError(this.handleError('getMerchants',[]))
+        tap(_ => this.log(`fetched merchants`)),
+        catchError(this.handleError<Merchant[]>('getMerchants', []))
       );
   }
 
@@ -56,7 +56,7 @@ export class MerchantService {
       );
   }
 
-  /** DELETE: delete the hero from the server */
+  /** DELETE: delete the merchant from the server */
   deleteMerchant (merchant: Merchant | number): Observable<Merchant> {
     const id = typeof merchant === 'number' ? merchant : merchant.id;
     const url = `${this.merchantsUrl}/${id}`;
@@ -67,6 +67,22 @@ export class MerchantService {
         catchError(this.handleError<Merchant>('deleteMerchant'))
       );
   }
+
+  /** GET: get merchants whose name contains search term */
+  searchMerchants(term: string): Observable<Merchant[]> {
+    if (!term.trim()) {
+      // if not search term, return empty Merchant array.
+      return of([]);
+    }
+    const url = this.merchantsUrl + '/' + term;
+    this.log('merchant.service.ts: Searching: ' + url);
+    return this.http.get<Merchant[]>(url)
+      .pipe(
+        tap(_ => this.log('found merchants matching ' + term)),
+        catchError(this.handleError<Merchant[]>('searchMerchants', []))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
@@ -77,7 +93,7 @@ export class MerchantService {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+      console.error(error.message); // log to console instead
 
       // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);

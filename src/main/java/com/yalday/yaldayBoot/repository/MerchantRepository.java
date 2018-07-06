@@ -22,5 +22,7 @@ public interface MerchantRepository extends JpaRepository<Merchant, Long> {
 
   Optional<Merchant> findByName(String name);
 
+  Optional<Merchant> findByNameLike(String name);
+
   Optional<Merchant> findById(Long id);
 }

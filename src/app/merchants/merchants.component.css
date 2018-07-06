@@ -1,15 +1,15 @@
-/* HeroesComponent's private CSS styles */
+/* MerchantComponent's private CSS styles */
 .selected {
   background-color: #CFD8DC !important;
   color: white;
 }
-.heroes {
+.merchants {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
 }
-.heroes li {
+.merchants li {
   cursor: pointer;
   position: relative;
   left: 0;
@@ -19,20 +19,20 @@
   height: 1.6em;
   border-radius: 4px;
 }
-.heroes li.selected:hover {
+.merchants li.selected:hover {
   background-color: #BBD8DC !important;
   color: white;
 }
-.heroes li:hover {
+.merchants li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
-.heroes .text {
+.merchants .text {
   position: relative;
   top: -3px;
 }
-.heroes .badge {
+.merchants .badge {
   display: inline-block;
   font-size: small;
   color: white;
