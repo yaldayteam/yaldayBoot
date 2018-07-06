@@ -74,11 +74,11 @@ export class MerchantService {
       // if not search term, return empty Merchant array.
       return of([]);
     }
-    const url = this.merchantsUrl + '/' + term;
+    const url = this.merchantsUrl + '/search/' + term;
     this.log('merchant.service.ts: Searching: ' + url);
     return this.http.get<Merchant[]>(url)
       .pipe(
-        tap(_ => this.log('found merchants matching ' + term)),
+        tap(_ => console.log('found merchants matching ' + term)),
         catchError(this.handleError<Merchant[]>('searchMerchants', []))
     );
   }

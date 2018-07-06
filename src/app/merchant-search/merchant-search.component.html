@@ -1,0 +1,12 @@
+<div id="search-component">
+  <h4>Merchant Search</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <ul class="search-result">
+    <li *ngFor="let merchant of merchants$ | async" >
+      <a routerLink="/detail/{{merchant.id}}">
+        {{merchant.name}}
+      </a>
+    </li>
+  </ul>
+</div>

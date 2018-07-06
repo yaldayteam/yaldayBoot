@@ -45,9 +45,13 @@ public final class MerchantController {
 
   @GetMapping("/merchants/{name}")
   public Merchant getMerchantByName(@PathVariable(value = "name") String name) {
-    System.out.println("Searching for " + name);
-    return merchantRepository.findByNameLike(name)
+    return merchantRepository.findByName(name)
       .orElseThrow(() -> new ResourceNotFoundException("Merchant", "name", name));
+  }
+
+  @GetMapping("/merchants/search/{name}")
+  public List<Merchant> searchMerchantsByName(@PathVariable(value = "name") String name) {
+    return merchantRepository.findAllByNameLike('%' + name + '%');
   }
 
   @PutMapping("/merchants")
