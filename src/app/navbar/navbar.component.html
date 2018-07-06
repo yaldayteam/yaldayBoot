@@ -1,0 +1,43 @@
+<!--div class="container">
+  <div class="row">
+
+    <nav class="navbar navbar-default navbar-fixed-top yalday-navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><b>Yalday.</b></a>
+        </div>
+        <ul class="nav navbar-nav navbar-links">
+          <li><a routerLink="/dashboard">Dashboard</a></li>
+          <li><a routerLink="/merchants">Merchants</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div-->
+
+
+<nav class="navbar navbar-default navbar-fixed-top yalday-navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><b>[Logo]</b></a>
+
+      <button type="button" class="navbar-toggle" (click)="onToggleMenu()">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+
+
+    <div class="collapse" [ngClass]="{'toggleMenuStyle' : toggleMenu === true}">
+      <ul class="nav navbar-nav navbar-links">
+        <li><a routerLink="/dashboard">Dashboard</a></li>
+        <li><a routerLink="/merchants">Merchants</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+

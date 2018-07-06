@@ -1,16 +1,32 @@
-<div *ngIf="merchant">
+<div class="container">
+  <div class="row">
 
-  <h2>{{ merchant.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{merchant.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="merchant.name" placeholder="name"/>
-    </label>
-  </div>
 
+    <div class="jumbotron text-center">
+      <h1>{{merchant.name}}'s Profile</h1>
+      <p>The Merchant Profile will go here</p>
+
+      <div *ngIf="merchant">
+        <div>
+          <label>name:
+            <input [(ngModel)]="merchant.name" placeholder="name"/>
+          </label>
+        </div>
+        <br>
+        <button class="btn btn-danger"(click)="goBack()">go back</button>
+        <button class="btn btn-info" (click)="save()">save</button>
+      </div>
+
+<<<<<<< HEAD
+=======
   <img [src]="merchant.imageUrl" alt="merchant.name" />
 
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
+>>>>>>> 3f314108debbf7ad09e6d9e99d2b23e843997a94
 
+
+    </div>
+
+  </div>
 </div>

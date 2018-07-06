@@ -1,48 +1,51 @@
-/* MerchantComponent's private CSS styles */
-.selected {
-  background-color: #CFD8DC !important;
-  color: white;
+.jumbotron
+{
+    margin-top:15em;
+    margin-left:5em;
+    margin-right:5em;
+    margin-bottom:5em;
+    min-width:150px;
+
 }
-.merchants {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
+
+.panel
+{
+    min-height:0px;
+    min-width:0px;
+    margin:10px;
+    box-shadow: 1px 1px 1px;
+    border: 1px solid #dddddd;
+    color: rgba(0,0,0,0.9);
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.1),
+                 0px -5px 35px rgba(255,255,255,0.9);
 }
-.merchants li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
+
+a:link {
+    color: pink;
+    text-decoration: none;
 }
-.merchants li.selected:hover {
-  background-color: #BBD8DC !important;
-  color: white;
+
+/* mouse over link */
+a:hover {
+    color: #3AAFA9;
+    text-decoration: none;
 }
-.merchants li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
+
+/* selected link */
+a:active {
+    color: #3AAFA9;
+    text-decoration: none;
 }
-.merchants .text {
-  position: relative;
-  top: -3px;
+
+
+.badge {
+   background-color: #3AAFA9;
+   min-height:40px;
+   padding:15px;
 }
-.merchants .badge {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
+
+.h2
+{
+  margin:30px;
+
 }

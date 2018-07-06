@@ -1,0 +1,50 @@
+.toggleMenuStyle {
+  display:block;
+}
+
+
+
+.yalday-navbar{
+  background-color: #3AAFA9;
+  min-height:75px;
+  padding:15px;
+  box-shadow: 1px 1px 1px 1px;
+  border-width: 0px;
+  color: rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.1),
+               0px -5px 35px rgba(255,255,255,0.3);
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+    margin-left: 75px;
+  	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  	font-size: 30px;
+}
+
+.navbar-links {
+  text-align:right;
+  padding: 10px;
+}
+
+ul.nav li a, ul.nav li a:visited {
+    color: 	white	 !important;
+    font-size:18px;
+}
+
+ul.nav li a:hover, ul.nav li a:active {
+    color: #17252A !important;
+}
+
+.navbar-nav {
+    float:none;
+    margin:0 auto;
+    margin-right: 100px;
+    display: block;
+    text-align: right;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    float:none;
+}
