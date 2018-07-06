@@ -49,6 +49,11 @@ public final class MerchantController {
       .orElseThrow(() -> new ResourceNotFoundException("Merchant", "name", name));
   }
 
+  @GetMapping("/merchants/search/{name}")
+  public List<Merchant> searchMerchantsByName(@PathVariable(value = "name") String name) {
+    return merchantRepository.findAllByNameLike('%' + name + '%');
+  }
+
   @PutMapping("/merchants")
   public Merchant updateMerchant(@Valid @RequestBody Merchant merchantDetails) {
     Merchant merchant = merchantRepository.findById(merchantDetails.getId())

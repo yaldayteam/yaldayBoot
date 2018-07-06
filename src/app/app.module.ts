@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import {MerchantSearchComponent} from "./merchant-search/merchant-search.component";
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FooterComponent } from './footer/footer.component';
     MerchantDetailComponent,
     MessagesComponent,
     DashboardComponent,
+    MerchantSearchComponent,
     NavbarComponent,
     FooterComponent
   ],
