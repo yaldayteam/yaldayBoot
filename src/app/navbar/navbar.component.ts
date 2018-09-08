@@ -9,15 +9,8 @@ export class NavbarComponent {
 
   toggleMenu = true;
 
-
   onToggleMenu() {
-    if (this.toggleMenu === true){
-      this.toggleMenu = false;
-    } else {
-      this.toggleMenu = true;
-    }
+    this.toggleMenu = this.toggleMenu !== true;
   }
-
-
 
 }

@@ -10,14 +10,10 @@
   <p>The search Information will go here</p>
 </div>
 
-
-
-
-
       <a *ngFor="let merchant of merchants" class="col-lg-4 col-md-4 col-sm-6 col-xs-8" routerLink="/merchant/{{merchant.name}}">
         <div class="panel">
           <div class="panel-body">
-            <img class="img-responsive img-rounded" src='https://upload.wikimedia.org/wikipedia/commons/c/c0/Pizza_with_tomatoes.jpg' alt='image'>
+            <img class="img-responsive img-rounded" src='{{merchant.imageUrl}}' alt='image' height="100" width="100">
           </div>
           <div class="panel-heading"><h4>{{merchant.name}}</h4><h6><B>LOCATION - £COST</B></h6><h5><p>This is the test description for the above merchant.</p></h5></div>
         </div>
