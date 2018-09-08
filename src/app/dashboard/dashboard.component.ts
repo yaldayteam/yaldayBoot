@@ -18,6 +18,6 @@ export class DashboardComponent implements OnInit {
 
   getMerchants(): void {
     this.merchantService.getMerchants()
-      .subscribe(merchants => this.merchants = merchants.slice(1, 5));
+      .subscribe(merchants => this.merchants = merchants.slice(1, 15));
   }
 }
