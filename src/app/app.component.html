@@ -1,7 +1,14 @@
-<h1>{{greeting.content}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/merchants">Merchants</a>
-</nav>
+<div class="container">
+  <div class="jumbotron">
+    <h1>{{greeting.content}}</h1>
+    <h2>Your lifestyle in one place.</h2>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Popular Choices</div>
+    <div class="panel-body">
+      <h3>Display the top merchants in here somehow...</h3>
+    </div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
-<app-messages></app-messages>

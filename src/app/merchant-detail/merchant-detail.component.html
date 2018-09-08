@@ -1,16 +1,14 @@
 <div *ngIf="merchant">
 
-  <h2>{{ merchant.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{merchant.id}}</div>
+  <h2>{{ merchant.name | uppercase }}</h2>
   <div>
-    <label>name:
-      <input [(ngModel)]="merchant.name" placeholder="name"/>
+    <label>
+      {{merchant.name}}
     </label>
   </div>
 
-  <img [src]="merchant.imageUrl" alt="merchant.name" />
+  <img [src]="merchant.imageUrl" alt="merchant.name" height="300" width="300"/>
 
   <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
 
 </div>
