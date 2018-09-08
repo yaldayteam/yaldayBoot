@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { FooterComponent } from './footer/footer.component';
     MessagesComponent,
     DashboardComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
