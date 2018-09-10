@@ -6,7 +6,7 @@ import { AlertService, AuthenticationService } from '../_services/index';
 var output = console.log;
 
 @Component({
-  selector: 'app-login', 
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: [ './login.component.css' ]
 })

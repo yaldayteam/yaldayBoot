@@ -1,43 +1,14 @@
-<div class="container">
-  <div class="row">
-    <div class="jumbotron text-center">
-      <h1>Merchants</h1>
-      <p>This page is to be deleted?</p>
-    </div>
-    <h2>List of Merchants</h2>
-    <br>
-    <div>
-      <label>Merchant name:
-        <input #merchantName />
-      </label>
-      <!-- (click) passes input value to add() and then clears the input -->
-      <button class="btn btn-primary"(click)="add(merchantName.value); merchantName.value=''">
-        Add
-      </button>
-    </div>
-    <br>
+<h2>My Merchants</h2>
+<div>
+  <label>Merchant name:
+    <input #merchantName />
+  </label>
 
-
-
-    <ul class="merchants">
-      <ul *ngFor="let merchant of merchants" class="col-lg-4 col-md-4 col-sm-6 col-xs-8" routerLink="/merchant/{{merchant.name}}">
-        <div class="panel">
-          <div class="panel-body">
-            <img class="img-responsive img-rounded" src='https://upload.wikimedia.org/wikipedia/commons/c/c0/Pizza_with_tomatoes.jpg' alt='image'>
-          </div>
-          <div class="panel-heading">
-            <a routerLink="/merchant/{{merchant.name}}">
-              <span class="badge">{{merchant.name}}</span>
-            </a>
-            <button class="btn btn-danger"
-                    (click)="delete(merchant)">X
-            </button>
-          </div>
-        </div>
-
-      </ul>
-    </ul>
-  </div>
 </div>
-
-
+<ul class="merchants">
+  <li *ngFor="let merchant of merchants">
+    <a routerLink="/merchant/{{merchant.name}}">
+      <span class="badge">{{merchant.name}}</span> {{merchant.name}}
+    </a>
+  </li>
+</ul>
