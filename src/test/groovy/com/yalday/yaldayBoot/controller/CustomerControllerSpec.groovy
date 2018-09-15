@@ -1,11 +1,9 @@
 package com.yalday.yaldayBoot.controller
 
 import com.yalday.yaldayBoot.YaldayBootApplication
-import com.yalday.yaldayBoot.entity.Merchant
-import com.yalday.yaldayBoot.entity.User
-import com.yalday.yaldayBoot.exception.MerchantExistsException
+import com.yalday.yaldayBoot.entity.Customer
 import com.yalday.yaldayBoot.exception.UserExistsException
-import com.yalday.yaldayBoot.repository.UserRepository
+import com.yalday.yaldayBoot.repository.CustomerRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import spock.lang.Specification
@@ -13,23 +11,23 @@ import spock.lang.Specification
 @SpringBootTest(
   webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
   classes = YaldayBootApplication.class)
-class UserControllerSpec extends Specification {
+class CustomerControllerSpec extends Specification {
 
-  UserController userController
+  CustomerController userController
 
   @Autowired
-  UserRepository userRepository
+  CustomerRepository userRepository
 
   def setup(){
-    userController = new UserController(userRepository)
+    userController = new CustomerController(userRepository)
     userRepository.deleteAll()
   }
 
   def "creating a user is successful" (){
     given: "A create call received from the front end asking to create a new user"
       def USER = "Eric"
-      User user = new User()
-      user.setName(USER)
+      Customer user = new Customer()
+      user.setUsername(USER)
     when: "The endpoint is hit"
       userController.createUser(user)
     then: "I expect the user to exist in the repo"
@@ -39,8 +37,8 @@ class UserControllerSpec extends Specification {
   def "creating a user which already exists throws an exception"(){
     given: "A create call is received for a user which already exists"
       def USER = "Eric"
-      User user = new User()
-      user.setName(USER)
+      Customer user = new Customer()
+      user.setUsername(USER)
       userRepository.save(user)
     when: "The endpoint is hit"
       userController.createUser(user)
@@ -53,22 +51,22 @@ class UserControllerSpec extends Specification {
   def "updating a user is successful" (){
     given: "a user already exists in the database"
       def USER = "Eric"
-      User user = new User()
-      user.setName(USER)
+      Customer user = new Customer()
+      user.setUsername(USER)
       userRepository.save(user)
-    and: "I change the name of the user"
-      User newUser = new User()
-      newUser.setName("Zlatan")
+    and: "I change the username of the user"
+      Customer newUser = new Customer()
+      newUser.setUsername("Zlatan")
     when: "I update a property of that merchant"
-      User updatedUser = userController.updateUser(newUser)
+      Customer updatedUser = userController.updateUser(newUser)
     then: "I expect the new value to be updated in the database"
-      updatedUser.getName() == "Zlatan"
+      updatedUser.getUsername() == "Zlatan"
   }
 
   def "deleting a user is successful" (){
     given: "a user exists in the database"
-      User user = new User()
-      user.setName("Iniesta")
+      Customer user = new Customer()
+      user.setUsername("Iniesta")
       userRepository.save(user)
     when: "I delete that user"
       userRepository.delete(merchant)

@@ -9,6 +9,6 @@ insert into merchant(merchant_id, merchant_name, image_url) values (18, 'Krusty 
 insert into merchant(merchant_id, merchant_name, image_url) values (19, 'Nuovo Vesuvio', 'assets/img/merchants/Nuovo_Vesuvio.jpg');
 insert into merchant(merchant_id, merchant_name, image_url) values (20, 'Bronto Burger', 'assets/img/merchants/bronto-burger.jpg');
 
-insert into user(user_id, user_name, password) values (1, 'Andres Iniesta', 'Barca');
-insert into user(user_id, user_name, password) values (2, 'Eric Cantona', 'ManUtd');
-insert into user(user_id, user_name, password) values (2, 'user1', 'user1Pass');
+insert into customer(user_id, user_name, password) values (1, 'AndresIniesta', 'Barca');
+insert into customer(user_id, user_name, password) values (2, 'EricCantona', 'ManUtd');
+insert into customer(user_id, user_name, password) values (3, 'user1', 'user1Pass');

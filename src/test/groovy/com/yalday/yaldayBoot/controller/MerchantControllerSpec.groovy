@@ -54,7 +54,7 @@ class MerchantControllerSpec extends Specification {
       Merchant merchant = new Merchant()
       merchant.setName(DOUBLER)
       merchantRepository.save(merchant)
-    and: "I change the name of the merchant"
+    and: "I change the username of the merchant"
       Merchant newMerchant = new Merchant()
       newMerchant.setName("Norma's")
     when: "I update a property of that merchant"

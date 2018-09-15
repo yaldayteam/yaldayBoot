@@ -32,12 +32,12 @@ class MerchantRepositorySpec extends Specification {
   }
 
   def "find a merchant by their name"(){
-    given: "Given a merchant with a name"
+    given: "Given a merchant with a username"
       Merchant merchant = new Merchant()
       def BIG_KAHUNA_BURGER = "Big Kahuna Burger"
       merchant.setName(BIG_KAHUNA_BURGER)
       merchantRepository.save(merchant)
-    when: "I search the merchant repository for that merchant name"
+    when: "I search the merchant repository for that merchant username"
        def optionalMerchant = merchantRepository.findByName(BIG_KAHUNA_BURGER)
     then: "I find the associated merchant"
       def returnedMerchant = optionalMerchant.get()
@@ -45,7 +45,7 @@ class MerchantRepositorySpec extends Specification {
   }
 
   def "deleting a merchant by their name removes them from the repo"(){
-    given: "Give a merchant with a name"
+    given: "Give a merchant with a username"
       Merchant merchant = new Merchant()
       def STANS = "Stan Mikita's All Star Cafe"
       merchant.setName(STANS)
