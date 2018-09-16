@@ -4,6 +4,7 @@ import { MerchantsComponent} from './merchants/merchants.component';
 import { LoginComponent} from './login/login.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
 import { MerchantDetailComponent }  from './merchant-detail/merchant-detail.component';
+import { HomeComponent } from './user_home/user_home.component';
 import { RegisterComponent} from './register/register.component';
 import { AuthGuard } from './_guards/index';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'merchants', component: MerchantsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'home', component: HomeComponent},
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

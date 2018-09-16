@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './user_home/user_home.component';
 
 import { AlertService, AuthenticationService, UserService } from './_services/index';
 import { RegisterComponent } from './register/index';
@@ -34,6 +35,7 @@ import { fakeBackendProvider } from './_helpers/index';
     LoginComponent,
     NavbarComponent,
     FooterComponent,
+    HomeComponent,
     RegisterComponent
   ],
   imports: [
