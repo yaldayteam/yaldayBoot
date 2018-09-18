@@ -1,5 +1,6 @@
 package com.yalday.yaldayBoot.security;
 
+import com.google.common.collect.Lists;
 import com.yalday.yaldayBoot.customer.CustomerDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -46,9 +47,11 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
   }
 
   @Bean
-  CorsConfigurationSource corsConfigurationSource() {
+  public CorsConfigurationSource corsConfigurationSource() {
     final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+    CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
+    corsConfiguration.setExposedHeaders(Lists.newArrayList("Authorization"));
+    source.registerCorsConfiguration("/**", corsConfiguration);
     return source;
   }
 

@@ -12,10 +12,17 @@ export class AuthenticationService {
     login(username: string, password: string) {
 
         console.log('auth service: login')
-        this.http.post<any>('http://localhost:8080/login', { "username": username, "password": password }, {observe: 'response'})
-          .subscribe(resp => {console.log(resp.headers.get('Authorization'));
+        this.http.post<any>(
+          'http://localhost:8080/login',
+          { "username": username, "password": password },
+          {observe: 'response'}
+          )
+          .subscribe(resp => {
+            console.log('Dealing with response');
+            console.log(resp.headers);
+            console.log(resp.headers.get('Authorization'));
           });
-        
+
         return this.http.post<any>('http://localhost:8080/login', { "username": username, "password": password })
             // .map(user => {
             //     // login successful if there's a jwt token in the response
@@ -24,7 +31,7 @@ export class AuthenticationService {
             //         localStorage.setItem('currentUser', JSON.stringify(user));
             //     } else { console.log('boo hoo') }
             //     return user;
-            // });  
+            // });
     }
 
     logout() {
