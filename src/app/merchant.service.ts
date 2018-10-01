@@ -18,8 +18,18 @@ export class MerchantService {
 
   constructor(private http: HttpClient,
               private messageService: MessageService) { }
+  
+    /** GET Merchants from the Server **/
+    getMerchants(): Observable<Merchant[]> {
+    this.log('MerchantService: fetched merchants');
+    return this.http.get<Merchant[]>(this.merchantsUrl)
+      .pipe(
+        tap(merchants => this.log(`fetched merchants`)),
+        catchError(this.handleError('getMerchants',[]))
+      );
+  }
 
-  /** GET merchant by id. Will 404 if id not found */
+  /** GET merchant by name. Will 404 if id not found */
   getMerchant(name: string): Observable<Merchant> {
     const url = `${this.merchantsUrl}/${name}`;
     return this.http.get<Merchant>(url)
@@ -29,14 +39,21 @@ export class MerchantService {
     );
   }
 
-  getMerchants(): Observable<Merchant[]> {
-    this.log('MerchantService: fetched merchants');
-    return this.http.get<Merchant[]>(this.merchantsUrl)
-      .pipe(
-        tap(merchants => this.log(`fetched merchants`)),
-        catchError(this.handleError('getMerchants',[]))
+  /** GET merchants whose name contains search term */
+  searchMerchants(name: string): Observable<Merchant[]> {
+    if (!name.trim()) {
+      // if not search term, return empty hero array
+      return of([]);
+    }
+    //const url = `${this.merchantsUrl}/${"Cheers"}`;
+    const url = `${this.merchantsUrl}/${name}`;
+    return this.http.get<Merchant[]>(url).pipe(
+      tap(_ => this.log('found heroes matching "${name}"')),
+        catchError(this.handleError<Merchant[]>('searcMerchants', []))
       );
   }
+ 
+
 
   /** PUT: update the merchant on the server */
   updateMerchant (merchant: Merchant): Observable<any> {

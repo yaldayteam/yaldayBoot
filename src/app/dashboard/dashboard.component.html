@@ -1,28 +1,40 @@
 <div class="container">
   <div class="row">
-
-<div class="jumbotron text-center">
-  <h1>Search</h1>
-  <p>The search Information will go here</p>
+<app-merchant-search></app-merchant-search> 
 </div>
 
-      <a *ngFor="let merchant of merchants" class="col-lg-4 col-md-4 col-sm-6 col-xs-8" routerLink="/merchant/{{merchant.name}}">
-        <div class="panel">
-          <div class="panel-body">
-            <img class="img-responsive img-rounded" src='{{merchant.imageUrl}}' alt='image' height="100" width="100">
-          </div>
-          <div class="panel-heading"><h4>{{merchant.name}}</h4><h6><B>LOCATION - £COST</B></h6><h5><p>This is the test description for the above merchant.</p></h5></div>
-        </div>
-      </a>
-    </div>
 
-  <div class="jumbotron text-center">
+
+
+<div class="row">
+ <div class="jumbotron text-center">
+    <h1>Top 5</h1>
+    <p>The Top 5 deals Information will go here - pre-populated list that matches the customers past booking experiences</p>
+ </div>
+  </div>
+
+<div class="row">
+ <div class="jumbotron text-center">
+    <h1>Food</h1>
+    <p>The pre-populated list of Food related merchants will go here</p>
+ </div>
+  </div>
+
+
+<div class="row">
+ <div class="jumbotron text-center">
     <h1>Tours</h1>
     <p>The Tour Information will go here</p>
+ </div>
   </div>
+
+
+<div class="row">
+ <div class="jumbotron text-center">
+    <h1>Adventure</h1>
+    <p>The pre-populated list of Adventure related merchants will go here</p>
+ </div>
+  </div>
+	
 </div>
-
-
-
-
 

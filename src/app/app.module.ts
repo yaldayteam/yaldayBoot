@@ -7,7 +7,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { MerchantsComponent } from './merchants/merchants.component';
 import { MerchantDetailComponent } from './merchant-detail/merchant-detail.component';
-import { MerchantService } from "./merchant.service";
+import { MerchantService } from './merchant.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { MerchantSearchComponent } from './merchant-search/merchant-search.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { RegisterComponent } from './register/register.component';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MerchantSearchComponent
   ],
   imports: [
     BrowserModule,

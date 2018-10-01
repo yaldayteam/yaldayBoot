@@ -38,17 +38,25 @@ public final class MerchantController {
 
   @PostMapping(path="/merchants")
   public Merchant createMerchant(@Valid @RequestBody Merchant merchant) {
+	System.out.print("This is merchants" + merchant);
     Optional<Merchant> optionalMerchant = merchantRepository.findByName(merchant.getName());
     optionalMerchant.ifPresent(returnedMerchant -> {throw new MerchantExistsException();});
     return merchantRepository.save(merchant);
   }
 
-  @GetMapping("/merchants/{name}")
+ /** @GetMapping("/merchants/{name}")
   public Merchant getMerchantByName(@PathVariable(value = "name") String name) {
     return merchantRepository.findByName(name)
       .orElseThrow(() -> new ResourceNotFoundException("Merchant", "name", name));
-  }
+  }**/
 
+  
+  @GetMapping(path="/merchants/{name}")
+  public List<Merchant> getAllMerchantsContainingName(@PathVariable(value = "name") String name){
+	  return merchantRepository.findByNameContaining(name);
+  }
+  
+  
   @PutMapping("/merchants")
   public Merchant updateMerchant(@Valid @RequestBody Merchant merchantDetails) {
     Merchant merchant = merchantRepository.findById(merchantDetails.getId())

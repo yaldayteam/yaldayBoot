@@ -1,0 +1,34 @@
+<div class="search-component">
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" value="What are you looking for?" onfocus="this.value=''"/>
+  
+
+  <ul class="search-result">
+  <li *ngFor="let merchant of merchants | async">  
+      <a routerLink="/merchant/{{merchant.name}}">
+         {{merchant.name}}
+      </a>
+      <!--a (click)="search(merchant.name)">
+      {{merchant.name}}
+	  </a-->	
+    </li>
+  </ul>
+  
+  
+<a *ngFor="let merchant of merchants | async" class="col-lg-6 col-md-6 col-sm-6 col-xs-6" routerLink="/merchant/{{merchant.name}}">  
+<div class="merchantBox"> 
+ 
+
+ 			<img class="merchantImage" src='{{merchant.imageUrl}}' alt='image'>	
+
+<div class="merchantInfo">
+ 			<h4>{{merchant.name}}</h4><h6><B>LOCATION - £COST</B></h6><h5><p>This is the test description for the above merchant.</p></h5>
+ </div>
+ 
+</div>
+</a>
+  
+
+</div>
+
+

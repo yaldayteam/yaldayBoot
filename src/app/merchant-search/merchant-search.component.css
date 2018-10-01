@@ -1,0 +1,113 @@
+
+.search-result li {
+	
+  text-align:center;	
+  margin: 1px;	
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid  gray;
+  box-shadow: 1px 1px 1px 1px;
+  border-width: 0px;
+  color: #3AAFA9;
+  width:500px;
+  height: 15px;
+  padding: 0.5em;
+  padding-bottom: 1.6em;
+  cursor: pointer;
+  list-style-type: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  background-color: white;
+  margin-right:7.71em;
+  margin-left:7.71em;
+}
+
+.search-result li:hover {
+  background-color: White;
+}
+
+.search-result li a {
+  color: #3AAFA9;
+  
+  display: block;
+  text-decoration: none;
+
+}
+
+.search-result li a:hover {
+  color: White;
+  background-color: #3AAFA9;
+  text-align: center;
+}
+.search-result li a:active {
+  color:  #3AAFA9;
+
+}
+
+#search-box {
+  width: 500px;
+  height: 50px;
+  box-shadow: 1px 1px 1px 1px;
+  border-width: 0px;
+  color: #3AAFA9;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  background-color: white;
+  padding: 2px;
+  text-align:center;
+}
+
+
+ul.search-result {
+  text-align:center;
+  margin-left:5em;
+  margin-right:5em;
+}
+
+.search-component {
+	background-color: white;
+	margin-top:10em;
+	margin-left:5em;
+	margin-right:5em;
+	margin-bottom:1e;
+	text-align:center;
+}
+
+
+.merchantBox {
+	width: 100%;
+	background-color: White;
+	height:150px;
+	margin-bottom:1em;	
+	box-shadow: 1px 1px 1px 1px;
+  	border-width: 0px;
+}
+
+.merchantImage {
+	position: relative;
+	float:left;
+	width: 200px;
+	height: 150px;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;	
+	
+}
+
+.merchantInfo {
+	background-color: white;
+	margin-left:225px;
+	padding: 15px;
+	text-align: left;
+	color: grey;
+	
+	
+}
+
+
+
+/*
+Copyright 2017-2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
